@@ -45,14 +45,26 @@ def __init__(self, data_csv):
         return -1
         
         
-        
-        # return list of value(s) associated with key_time
-        # if none, return -1 and error message
-
+  # Added a binary search option
     def binary_search_value(self,key_time):
-        # optional extra credit
-        # return list of value(s) associated with key_time
-        # if none, return -1 and error message
+   
+    lo = -1
+    hi = len(self)
+    while (hi - lo > 1):
+        mid = (hi + lo) // 2
+
+        if self == key_time[mid]:
+            return key_time[mid]
+
+        if ( self < key_time[mid] ):
+            hi = mid
+
+        else:
+            lo = mid
+
+    return -1
+
+
 
 # creation of a round Time Array to round times to nearest minute
 def roundTimeArray(obj, res):
