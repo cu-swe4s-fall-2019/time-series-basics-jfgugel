@@ -6,10 +6,58 @@ import argparse
 import datetime
 
 
-class ImportData:
-    def __init__(self, data_csv):
+
+def __init__(self, data_csv):
         self._time = []
         self._value = []
+        self._roundtime = []
+        self._roundtimeStr = []
+        
+        with open(data_csv, "r") as fhandle:
+            reader = csv.DictReader(fhandle)
+            for row in reader:
+                try:
+                    self._time.append(dateutil.parser.parse(row['time']))
+                except ValueError:
+                    print('Bad input format for time')
+                    print(row['time'])
+                self._value.append(row['value'])
+            
+            fhandle.close()
+        
+        "Added a function to replace the word low with the value 40 and the word high with the value 300"
+             with open(data_csv, "r") as: replacement:
+                replacement = reader\.replace("low", 40)
+                replacement = reader\.replace("high", 300)            
+            fhandle.close()
+            
+        
+
+
+
+        self.roundTime(5)
+
+
+#     def __init__(self, data_csv):
+#         self._time = []
+#         self._value = []
+
+#         with open(data_csv, "r") as fhandle:
+#             reader = csv.DictReader(fhandle)
+#             for row in reader:
+#                 time.append(row[1])
+#                 value.append(row[2])
+        
+#         return self._time, self._value
+    
+#     self._time, self._value = reader(filename)
+
+#     print(time)
+#     print(value)
+
+    #def __init__(self, data_csv):
+        #self._time = []
+        #self._value = []
 
         # open file, create a reader from csv.DictReader, and read input times and values
 
