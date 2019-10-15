@@ -12,3 +12,5 @@ data-import.py
     # The function linear search is used to search the datafile for a key_time and then return the list of associated values
     
     # The function roundTimeArray is used to round times to the nearest minute
+    
+    # printLargeArray function developed to create a csv which aligns the data in the zip objects based on key_file
