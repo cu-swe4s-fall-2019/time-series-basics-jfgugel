@@ -19,3 +19,8 @@ data-import.py
     
     # Main function pulls in csv files, then creates two rounded versions. One is rounded to the nearest 5 minutes. The other is rounded to the nearest 15 minutes. Then the data is combined into two new csv files, one for the 5 min rounding, one for the 15 min rounding. 
     
+    
+sssshtest.sh and unittest.py
+ 
+     #funtional and unit tests to make sure csv isn't empty
+    
