@@ -25,10 +25,13 @@ def __init__(self, data_csv):
             
             fhandle.close()
         
-        with open(data_csv, "r") as: replacement:
-                replacement ".join([i for i in text])"
-            
+        "Added a function to replace the word low with the value 40 and the word high with the value 300"
+             with open(data_csv, "r") as: replacement:
+                replacement = reader\.replace("low", 40)
+                replacement = reader\.replace("high", 300)            
             fhandle.close()
+            
+        
 
 
 
