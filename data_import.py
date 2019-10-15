@@ -7,12 +7,13 @@ import datetime
 
 
 class Import Data
+
+"Function retrieves times and values from csv file"
 def __init__(self, data_csv):
         self._time = []
         self._value = []
         self._roundtime = []
         self._roundtimeStr = []
-        
         with open(data_csv, "r") as fhandle:
             reader = csv.DictReader(fhandle)
             for row in reader:
@@ -53,17 +54,19 @@ def __init__(self, data_csv):
         # return list of value(s) associated with key_time
         # if none, return -1 and error message
 
+# creation of a round Time Array to round times to nearest minute
 def roundTimeArray(obj, res):
-    # Inputs: obj (ImportData Object) and res (rounding resoultion)
-    # objective:
-    # create a list of datetime entries and associated values
-    # with the times rounded to the nearest rounding resolution (res)
-    # ensure no duplicated times
-    # handle duplicated values for a single timestamp based on instructions in
-    # the assignment
-    # return: iterable zip object of the two lists
-    # note: you can create additional variables to help with this task
-    # which are not returned
+            for times in self._time:
+            minminus = datetime.timedelta(minutes = (times.minute % resolution))
+            minplus = datetime.timedelta(minutes=resolution) - minminus
+            if (times.minute % resolution) <= resolution/2:
+                newtime = times - minminus
+            else:
+                newtime=times + minplus        
+               
+                
+            self._roundtime.append(newtime)
+            self._roundtimeStr.append(newtime.strftime("%m/%d/%Y %H:%M"))
 
 
 def printArray(data_list, annotation_list, base_name, key_file):

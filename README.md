@@ -10,3 +10,5 @@ data-import.py
     # The word low will be replaced with the value 40 and the word high will be replaced with the value 300
     
     # The function linear search is used to search the datafile for a key_time and then return the list of associated values
+    
+    # The function roundTimeArray is used to round times to the nearest minute
