@@ -30,3 +30,21 @@ smbg_small.rename(columns={"value":"smbg_small"},inplace=True)
 
 #fill in any nan values with 0
 joinFrame.fillna(0,inplace=True)
+
+
+#time stamps
+cgm_small.index = pd.to_datetime(cgm.index)
+#add a new column
+cgm_small.insert(len(cgm_small.columns),'DT',cgm_small.index)
+#get the difference between values, and add it as a new column
+cgm_small.insert(len(cgm_small.columns),'DT_diff',cgm_small.DT.diff())
+
+#make a column that rounds to nearest 15minute interval
+cgm_small.insert(len(cgm_small.columns),'15min',cgm_small['DT'].dt.round('15min'))
+
+#make a column that rounds to nearest 5minute interval
+cgm_small.insert(len(cgm_small.columns),'5min',cgm_small['DT'].dt.round('5min'))
+
+# group by new times, and get the means
+rounded_cgm_small_15mins = cgm_Small.groupby('15min')['cgm_small'].mean()
+rounded_cgm_small_5mins = cgm_Small.groupby('5min')['cgm_small'].mean()

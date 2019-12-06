@@ -1,3 +1,14 @@
+# Assignment 11 Updates
+Created pandas_import.py
+    # Imported numpy and pandas modules
+    # Imported the files from the smallData folder
+    # Joined the dataframes on the index using the cgm_small file as the main dataset from which to call the joint function
+    # Replaced NaN values with 0
+    # Added rounding functionality to round to 5 and 15 minutes
+    # Used the group by function to construct two new data structures
+
+
+
 # time-series-basics
 Time Series basics - importing, cleaning, printing to csv
 
